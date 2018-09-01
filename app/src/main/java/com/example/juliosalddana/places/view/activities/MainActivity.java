@@ -1,14 +1,15 @@
-package com.example.juliosalddana.places.view;
+package com.example.juliosalddana.places.view.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.example.juliosalddana.places.R;
 import com.example.juliosalddana.places.model.repositories.PlacesRepository;
 import com.example.juliosalddana.places.view.adapters.PlacesAdapter;
+import com.example.juliosalddana.places.view.adapters.PlacesEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,18 @@ public class MainActivity extends AppCompatActivity {
         rvPlaces.setAdapter(placesAdapter);
         rvPlaces.setLayoutManager(new LinearLayoutManager(this));
 
+        placesAdapter.setPlacesEventListener(placesEventListener);
+
         placesAdapter.setPlaceList(PlacesRepository.PLACES_LIST);
         placesAdapter.notifyDataSetChanged();
     }
+
+
+    private PlacesEventListener placesEventListener =  new PlacesEventListener() {
+        @Override
+        public void onSelectPlace(int placePosition) {
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            startActivity(intent);
+        }
+    };
 }
