@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/padding_place_item">
+
+    <ImageView
+        android:id="@+id/im_place_item"
+        android:layout_width="@dimen/width_place_item_img"
+        android:layout_height="@dimen/height_place_item_img"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/machu_picchu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/margin_right_place_item_img"/>
+
+    <TextView
+        android:id="@+id/tv_place_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Title"
+        android:textSize="@dimen/text_size_place_item_title"
+        android:textColor="@color/black"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/im_place_item"/>
+
+
+    <TextView
+        android:id="@+id/tv_place_item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_place_item_title"
+        tools:text="@string/machu_picchu_description"
+        android:textSize="@dimen/text_size_place_item_title"
+        android:layout_toRightOf="@id/im_place_item"
+        android:ellipsize="end"
+        android:maxLines="3"/>
+</RelativeLayout>
