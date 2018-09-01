@@ -5,4 +5,6 @@
     <dimen name="height_place_item_img">100dp</dimen>
     <dimen name="text_size_place_item_title">20sp</dimen>
     <dimen name="margin_right_place_item_img">10dp</dimen>
+    <dimen name="height_img_place_image">200dp</dimen>
+    <dimen name="padding_place_detail">12dp</dimen>
 </resources>

@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.DetailActivity">
+    android:orientation="vertical"
+    tools:context=".view.activities.DetailActivity"
+    android:padding="@dimen/padding_place_detail">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_place_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="Title" />
+
+
+    <ImageView
+        android:id="@+id/im_place"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_img_place_image"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/machu_picchu"/>
+
+    <TextView
+        android:id="@+id/tv_place_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/machu_picchu_description"/>
+
+</LinearLayout>
