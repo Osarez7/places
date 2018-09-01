@@ -5,7 +5,13 @@
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/misc.xml
+/.idea/markdown-navigator
+/.idea/markdown-navigator.xml
+
 .DS_Store
 /build
 /captures
 .externalNativeBuild
+.idea/vcs.xml
+app/libs/
+app/sampledata/
