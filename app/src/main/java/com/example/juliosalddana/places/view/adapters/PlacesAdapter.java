@@ -16,7 +16,8 @@ import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder>{
 
-    List<Place> placeList = new ArrayList<>();
+    private List<Place> placeList = new ArrayList<>();
+    private PlacesEventListener placesEventListener;
     /**
      * Crea el ViewHolder para este adapter
      * @param parent
@@ -43,6 +44,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
         holder.imPlace.setImageResource(place.getImageId());
         holder.tvPlaceTitle.setText(place.getName());
         holder.tvPlaceDesription.setText(place.getDescription());
+        holder.position = position;
     }
 
 
@@ -60,6 +62,11 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
         this.placeList = placeList;
     }
 
+
+    public void setPlacesEventListener(PlacesEventListener placesEventListener) {
+        this.placesEventListener = placesEventListener;
+    }
+
     /**
      * ViewHolder, es el objecto que contiene las propiedades de un elemento de la lista
      */
@@ -67,12 +74,23 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlaceViewH
         ImageView imPlace;
         TextView tvPlaceTitle;
         TextView tvPlaceDesription;
+        int position;
 
         public PlaceViewHolder(View itemView) {
             super(itemView);
             imPlace = itemView.findViewById(R.id.im_place_item);
             tvPlaceTitle = itemView.findViewById(R.id.tv_place_item_title);
             tvPlaceDesription = itemView.findViewById(R.id.tv_place_item_description);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (placesEventListener != null) {
+                        placesEventListener.onSelectPlace(position);
+                    }
+                }
+            });
         }
     }
 }
