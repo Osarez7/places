@@ -22,20 +22,22 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        if (intent != null) {
-            placePosition = intent.getIntExtra(PLACE_POSITION_KEY, 0);
-        }
-
-        Place place  = PlacesRepository.getPlaceByPosition(placePosition);
 
         //Inflamos las vistas del layout
         TextView tvPlaceTitle = findViewById(R.id.tv_place_title);
         TextView tvtPlaceDescription  = findViewById(R.id.tv_place_description);
         ImageView ivPlace = findViewById(R.id.im_place);
 
-        //Asignamos valores a las vistas
-        tvPlaceTitle.setText(place.getName());
-        tvtPlaceDescription.setText(place.getDescription());
-        ivPlace.setImageResource(place.getImageId());
+
+        if (intent != null) {
+            placePosition = intent.getIntExtra(PLACE_POSITION_KEY, 0);
+            Place place  = PlacesRepository.getPlaceByPosition(placePosition);
+
+            //Asignamos valores a las vistas
+            tvPlaceTitle.setText(place.getName());
+            tvtPlaceDescription.setText(place.getDescription());
+            ivPlace.setImageResource(place.getImageId());
+        }
+
 ;    }
 }

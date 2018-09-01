@@ -7,15 +7,8 @@
     android:orientation="vertical"
     tools:context=".view.activities.MainActivity">
 
-    <TextView
-        android:id="@+id/txt_places_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/place_list_title_color"
-        android:text="@string/places_list_title_label"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_places"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+   <FrameLayout
+       android:id="@+id/container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"></FrameLayout>
 </LinearLayout>
