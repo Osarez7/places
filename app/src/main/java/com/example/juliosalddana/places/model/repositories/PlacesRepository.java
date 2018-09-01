@@ -18,4 +18,8 @@ public class PlacesRepository {
         PLACES_LIST.add(new Place(R.drawable.machu_picchu, R.string.machu_picchu_title, R.string.machu_picchu_description));
         PLACES_LIST.add(new Place(R.drawable.muralla_china, R.string.machu_picchu_title, R.string.machu_picchu_description));
     }
+
+    public static Place getPlaceByPosition(int placePosition) {
+        return PLACES_LIST.get(placePosition);
+    }
 }

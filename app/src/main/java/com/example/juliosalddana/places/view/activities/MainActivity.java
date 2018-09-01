@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSelectPlace(int placePosition) {
             Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            intent.putExtra(DetailActivity.PLACE_POSITION_KEY, placePosition);
             startActivity(intent);
         }
     };
