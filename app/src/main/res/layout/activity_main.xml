@@ -7,8 +7,9 @@
     android:orientation="vertical"
     tools:context=".view.activities.MainActivity">
 
-   <FrameLayout
-       android:id="@+id/container"
+   <fragment
+       android:id="@+id/place_list_fragment"
+       android:name="com.example.juliosalddana.places.view.Fragments.PlaceListFragment"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"></FrameLayout>
+       android:layout_height="match_parent"/>
 </LinearLayout>
