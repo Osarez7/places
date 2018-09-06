@@ -4,28 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activities.DetailActivity"
-    android:padding="@dimen/padding_place_detail">
+    android:padding="@dimen/padding_place_detail"
+    tools:context=".view.activities.DetailActivity">
 
-    <TextView
-        android:id="@+id/tv_place_title"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        tools:text="Title" />
-
-
-    <ImageView
-        android:id="@+id/im_place"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_img_place_image"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/machu_picchu"/>
-
-    <TextView
-        android:id="@+id/tv_place_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="@string/machu_picchu_description"/>
+        android:layout_height="match_parent">
+    </FrameLayout>
 
 </LinearLayout>

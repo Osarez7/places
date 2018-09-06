@@ -1,6 +1,8 @@
 package com.example.juliosalddana.places.view.activities;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 import com.example.juliosalddana.places.R;
 import com.example.juliosalddana.places.model.datamodels.Place;
 import com.example.juliosalddana.places.model.repositories.PlacesRepository;
+import com.example.juliosalddana.places.view.Fragments.PlaceDetailFragment;
+import com.example.juliosalddana.places.view.Fragments.PlaceListFragment;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -21,23 +25,26 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-
-
-        //Inflamos las vistas del layout
-        TextView tvPlaceTitle = findViewById(R.id.tv_place_title);
-        TextView tvtPlaceDescription  = findViewById(R.id.tv_place_description);
-        ImageView ivPlace = findViewById(R.id.im_place);
-
-
         if (intent != null) {
             placePosition = intent.getIntExtra(PLACE_POSITION_KEY, 0);
-            Place place  = PlacesRepository.getPlaceByPosition(placePosition);
-
-            //Asignamos valores a las vistas
-            tvPlaceTitle.setText(place.getName());
-            tvtPlaceDescription.setText(place.getDescription());
-            ivPlace.setImageResource(place.getImageId());
         }
 
-;    }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        Fragment  placedDetailFragment =  fragmentManager.findFragmentById(R.id.container);
+        if (placedDetailFragment == null) {
+            placedDetailFragment = new PlaceDetailFragment();
+
+            //Estamos creando un bundle con parametros y enviandolo a nuestro fragment
+            Bundle bundle = new Bundle();
+            bundle.putInt(PlaceDetailFragment.ARG_PLACE_POSITION, placePosition);
+            placedDetailFragment.setArguments(bundle);
+
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.container,  placedDetailFragment)
+                    .commit();
+        }
+   }
 }
