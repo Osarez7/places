@@ -1,5 +1,7 @@
 package com.example.juliosalddana.places.view.activities;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -15,11 +17,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PlaceListFragment placeListFragment = new PlaceListFragment();
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container,  placeListFragment)
-                .commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        Fragment  placeListFragment =  fragmentManager.findFragmentById(R.id.container);
+        if (placeListFragment == null) {
+            placeListFragment = new PlaceListFragment();
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.container,  placeListFragment)
+                    .commit();
+        }
+
     }
 
 
