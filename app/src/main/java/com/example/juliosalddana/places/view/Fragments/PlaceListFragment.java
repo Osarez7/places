@@ -21,7 +21,8 @@ public class PlaceListFragment  extends Fragment{
 
 
     private RecyclerView rvPlaces;
-
+    private PlacesEventListener placesEventListener;
+    private PlacesAdapter placesAdapter;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class PlaceListFragment  extends Fragment{
         //lista de lugares
         rvPlaces = view.findViewById(R.id.rv_places);
 
-        PlacesAdapter placesAdapter = new PlacesAdapter();
+        placesAdapter = new PlacesAdapter();
         rvPlaces.setAdapter(placesAdapter);
         rvPlaces.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -48,12 +49,15 @@ public class PlaceListFragment  extends Fragment{
         return view;
     }
 
-    private PlacesEventListener placesEventListener =  new PlacesEventListener() {
-        @Override
-        public void onSelectPlace(int placePosition) {
-            Intent intent = new Intent(getContext(), DetailActivity.class);
-            intent.putExtra(DetailActivity.PLACE_POSITION_KEY, placePosition);
-            startActivity(intent);
+    public PlacesEventListener getPlacesEventListener() {
+        return placesEventListener;
+    }
+
+    public void setPlacesEventListener(PlacesEventListener placesEventListener) {
+        this.placesEventListener = placesEventListener;
+        if(placesAdapter != null){
+            placesAdapter.setPlacesEventListener(placesEventListener);
         }
-    };
+    }
+
 }

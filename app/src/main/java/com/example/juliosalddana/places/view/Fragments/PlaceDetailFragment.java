@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.juliosalddana.places.R;
 import com.example.juliosalddana.places.model.datamodels.Place;
 import com.example.juliosalddana.places.model.repositories.PlacesRepository;
+import com.example.juliosalddana.places.view.adapters.PlacesEventListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +22,7 @@ public class PlaceDetailFragment extends Fragment {
 
     public static final String ARG_PLACE_POSITION = "place_position" ;
     private int mPlacePosition;
+
 
     public PlaceDetailFragment() {
         // Required empty public constructor
@@ -51,11 +53,12 @@ public class PlaceDetailFragment extends Fragment {
     }
 
 
+
     public static PlaceDetailFragment getInstance(int polacePosition){
         //Estamos creando un bundle con parametros y enviandolo a nuestro fragment
         PlaceDetailFragment placeDetailFragment = new PlaceDetailFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(PlaceDetailFragment.ARG_PLACE_POSITION,polacePosition );
+        bundle.putInt(PlaceDetailFragment.ARG_PLACE_POSITION,polacePosition);
         placeDetailFragment.setArguments(bundle);
         return placeDetailFragment;
     }
