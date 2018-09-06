@@ -12,6 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textSize="@dimen/place_detail_title_size"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
         tools:text="Title" />
 
 
@@ -20,12 +24,14 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_img_place_image"
         android:scaleType="centerCrop"
-        tools:src="@drawable/machu_picchu"/>
+        tools:src="@drawable/machu_picchu"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/tv_place_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="@string/machu_picchu_description"/>
+        tools:text="@string/machu_picchu_description"
+        android:textSize="@dimen/place_detail_description_size"/>
 
 </LinearLayout>

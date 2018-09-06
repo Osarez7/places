@@ -12,7 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/place_list_title_color"
-        android:text="@string/places_list_title_label"/>
+        android:layout_marginLeft="10dp"
+        android:textSize="@dimen/places_list_title_size"
+        android:text="@string/places_list_title_label"
+        android:textStyle="bold"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_places"

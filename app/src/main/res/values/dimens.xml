@@ -7,4 +7,7 @@
     <dimen name="margin_right_place_item_img">10dp</dimen>
     <dimen name="height_img_place_image">200dp</dimen>
     <dimen name="padding_place_detail">12dp</dimen>
+    <dimen name="places_list_title_size">22dp</dimen>
+    <dimen name="place_detail_title_size">22dp</dimen>
+    <dimen name="place_detail_description_size">16sp</dimen>
 </resources>
