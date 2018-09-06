@@ -50,4 +50,13 @@ public class PlaceDetailFragment extends Fragment {
         return view;
     }
 
+
+    public static PlaceDetailFragment getInstance(int polacePosition){
+        //Estamos creando un bundle con parametros y enviandolo a nuestro fragment
+        PlaceDetailFragment placeDetailFragment = new PlaceDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(PlaceDetailFragment.ARG_PLACE_POSITION,polacePosition );
+        placeDetailFragment.setArguments(bundle);
+        return placeDetailFragment;
+    }
 }

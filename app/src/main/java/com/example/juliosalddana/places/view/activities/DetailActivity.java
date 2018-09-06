@@ -34,12 +34,10 @@ public class DetailActivity extends AppCompatActivity {
 
         Fragment  placedDetailFragment =  fragmentManager.findFragmentById(R.id.container);
         if (placedDetailFragment == null) {
-            placedDetailFragment = new PlaceDetailFragment();
 
-            //Estamos creando un bundle con parametros y enviandolo a nuestro fragment
-            Bundle bundle = new Bundle();
-            bundle.putInt(PlaceDetailFragment.ARG_PLACE_POSITION, placePosition);
-            placedDetailFragment.setArguments(bundle);
+
+            placedDetailFragment =  PlaceDetailFragment.getInstance(placePosition);
+
 
             fragmentManager
                     .beginTransaction()
